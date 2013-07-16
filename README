@@ -1,0 +1,8 @@
+Ember-testing / QUnit / jquery-mockjax
+
+To run the javascript tests
+
+    npm install
+    export PATH="./node_modules/.bin:$PATH"
+    bower install
+    karma start

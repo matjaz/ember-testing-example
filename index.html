@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Introduction to emberjs</title>
+</head>
+<body>
+
+<script type="text/x-handlebars" data-template-name="application">
+{{outlet}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="people">
+{{input class="firstName" type="text" placeholder="first name" value=firstName }}
+{{input class="lastName" type="text" placeholder="last name" value=lastName }}
+<input class="submit" type="submit" value="add" {{action addPerson}} />
+<br />
+<table>
+{{#each person in controller}}
+<tr>
+  <td class="name">{{person.fullName}}</td>
+  <td><input type="submit" class="delete" value="delete" {{action deletePerson person}} /></td>
+</tr>
+{{/each}}
+</table>
+</script>
+
+<script src="js/vendor/jquery/jquery.min.js"></script>
+<script src="js/vendor/handlebars/handlebars.js"></script>
+<script src="js/vendor/ember/ember.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
