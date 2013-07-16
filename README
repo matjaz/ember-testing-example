@@ -16,3 +16,7 @@ To run the ember.js web app
 
     ./bin/server
     http://localhost:3000
+
+Known issues: does not yet work with RC6
+
+https://github.com/emberjs/ember.js/issues/2997
