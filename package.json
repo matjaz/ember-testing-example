@@ -3,6 +3,6 @@
     "bower": "*",
     "karma-ember-preprocessor": "0.0.4",
     "karma-qunit": "*",
-    "karma": "0.9.3"
+    "karma": "0.9.5"
   }
 }

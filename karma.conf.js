@@ -1,5 +1,5 @@
 module.exports = function(karma) {
-    karma.configure({
+    karma.set({
         basePath: 'js',
 
         files: [
