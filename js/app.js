@@ -1,7 +1,14 @@
 App = Ember.Application.create();
 
 App.Router.map(function() {
-    this.resource("people", { path: "/" });
+    this.resource("other", { path: "/" });
+    this.resource("people", { path: "/people" });
+});
+
+App.OtherRoute = Ember.Route.extend({
+    redirect: function() {
+        this.transitionTo('people');
+    }
 });
 
 App.PeopleRoute = Ember.Route.extend({
