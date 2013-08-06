@@ -12,6 +12,7 @@ module.exports = function(karma) {
           "templates/*.handlebars"
         ],
 
+        logLevel: karma.LOG_ERROR,
         browsers: ['PhantomJS'],
         singleRun: true,
         autoWatch: false,
