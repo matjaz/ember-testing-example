@@ -19,4 +19,4 @@ To run the ember.js web app
 
 Known issues: does not yet work with RC6
 
-https://github.com/emberjs/ember.js/issues/2997
+https://github.com/emberjs/ember.js/pull/3026
