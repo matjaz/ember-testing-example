@@ -10,15 +10,16 @@ module('integration tests', {
 
 test('empty ajax response will yield empty table', function() {
     stubEndpointForHttpRequest('/api/people', []);
-    visit("/").then(function() {
-        missing("table tr");
+    visit("/people").then(function() {
+        var rows = find("table tr").length;
+        equal(rows, 0, rows);
     });
 });
 
 test('ajax response with 2 people yields table with 2 rows', function() {
     var json = [{firstName: "x", lastName: "y"}, {firstName: "h", lastName: "z"}];
     stubEndpointForHttpRequest('/api/people', json);
-    visit("/").then(function() {
+    visit("/people").then(function() {
         var rows = find("table tr").length;
         equal(rows, 2, rows);
     });
@@ -26,15 +27,16 @@ test('ajax response with 2 people yields table with 2 rows', function() {
 
 test('another empty ajax response will yield another empty table', function() {
     stubEndpointForHttpRequest('/api/people', []);
-    visit("/").then(function() {
-        missing("table tr");
+    visit("/people").then(function() {
+        var rows = find("table tr").length;
+        equal(rows, 0, rows);
     });
 });
 
 test('ajax response with 1 person yields table with 1 row', function() {
     var matt = {firstName: 'matt', lastName: 'morrison'};
     stubEndpointForHttpRequest('/api/people', [matt]);
-    visit("/").then(function() {
+    visit("/people").then(function() {
         var rows = find("table tr").length;
         equal(rows, 1, rows);
     });
@@ -44,7 +46,7 @@ test('add will append another person to the html table', function() {
     expect(4);
     var matt = {firstName: 'matt', lastName: 'morrison'};
     stubEndpointForHttpRequest('/api/people', [matt]);
-    visit("/").then(function() {
+    visit("/people").then(function() {
       var rows = find("table tr").length
       equal(rows, 1, "the table had " + rows + " rows");
       var fullName = find("table tr:eq(0) td:eq(0)").text();
@@ -63,7 +65,7 @@ test('delete will remove the person for a given row', function() {
     var matt = {firstName: 'matt', lastName: 'morrison'};
     var toran = {firstName: 'toran', lastName: 'billups'};
     stubEndpointForHttpRequest('/api/people', [matt, toran]);
-    visit("/").then(function() {
+    visit("/people").then(function() {
         var rows = find("table tr").length
         equal(rows, 2, "the table had " + rows + " rows");
         equal(find("table tr:eq(0) td:eq(0)").text(), "matt morrison", "the first row was incorrect");

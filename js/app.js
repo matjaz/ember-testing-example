@@ -5,11 +5,14 @@ App.Router.map(function() {
     this.resource("people", { path: "/people" });
 });
 
-App.OtherRoute = Ember.Route.extend({
-    redirect: function() {
-        this.transitionTo('people');
-    }
-});
+//todo -until the bug in RC6 is fixed we can't redirect
+//because App.reset() will fire the "/" route right away
+//meaning we cannot mock the $.ajax
+// App.OtherRoute = Ember.Route.extend({
+//     redirect: function() {
+//         this.transitionTo('people');
+//     }
+// });
 
 App.PeopleRoute = Ember.Route.extend({
     model: function() {
