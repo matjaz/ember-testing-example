@@ -18,15 +18,17 @@ App.PeopleRoute = Ember.Route.extend({
 });
 
 App.PeopleController = Ember.ArrayController.extend({
-    addPerson: function() {
-        var person = {
-            firstName: this.get('firstName'),
-            lastName: this.get('lastName')
-        };
-        App.Person.add(person);
-    },
-    deletePerson: function(person) {
-        App.Person.remove(person);
+    actions: {
+        addPerson: function() {
+            var person = {
+                firstName: this.get('firstName'),
+                lastName: this.get('lastName')
+            };
+            App.Person.add(person);
+        },
+        deletePerson: function(person) {
+            App.Person.remove(person);
+        }
     }
 });
 
