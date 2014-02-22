@@ -3,7 +3,6 @@ module('integration tests', {
         Ember.run(function() {
             App.reset();
             App.Person.people = [];
-            App.deferReadiness();
         });
     },
     teardown: function() {
@@ -13,7 +12,6 @@ module('integration tests', {
 
 test('empty ajax response will yield empty table', function() {
     stubEndpointForHttpRequest('/api/people', []);
-    Ember.run(App, 'advanceReadiness');
     visit("/").then(function() {
         var rows = find("table tr").length;
         equal(rows, 0, rows);
@@ -23,7 +21,6 @@ test('empty ajax response will yield empty table', function() {
 test('ajax response with 2 people yields table with 2 rows', function() {
     var json = [{firstName: "x", lastName: "y"}, {firstName: "h", lastName: "z"}];
     stubEndpointForHttpRequest('/api/people', json);
-    Ember.run(App, 'advanceReadiness');
     visit("/").then(function() {
         var rows = find("table tr").length;
         equal(rows, 2, rows);
@@ -32,7 +29,6 @@ test('ajax response with 2 people yields table with 2 rows', function() {
 
 test('another empty ajax response will yield another empty table', function() {
     stubEndpointForHttpRequest('/api/people', []);
-    Ember.run(App, 'advanceReadiness');
     visit("/").then(function() {
         var rows = find("table tr").length;
         equal(rows, 0, rows);
@@ -42,7 +38,6 @@ test('another empty ajax response will yield another empty table', function() {
 test('ajax response with 1 person yields table with 1 row', function() {
     var matt = {firstName: 'matt', lastName: 'morrison'};
     stubEndpointForHttpRequest('/api/people', [matt]);
-    Ember.run(App, 'advanceReadiness');
     visit("/").then(function() {
         var rows = find("table tr").length;
         equal(rows, 1, rows);
@@ -53,7 +48,6 @@ test('add will append another person to the html table', function() {
     expect(4);
     var matt = {firstName: 'matt', lastName: 'morrison'};
     stubEndpointForHttpRequest('/api/people', [matt]);
-    Ember.run(App, 'advanceReadiness');
     visit("/").then(function() {
       var rows = find("table tr").length
       equal(rows, 1, "the table had " + rows + " rows");
@@ -73,7 +67,6 @@ test('delete will remove the person for a given row', function() {
     var matt = {firstName: 'matt', lastName: 'morrison'};
     var toran = {firstName: 'toran', lastName: 'billups'};
     stubEndpointForHttpRequest('/api/people', [matt, toran]);
-    Ember.run(App, 'advanceReadiness');
     visit("/").then(function() {
         var rows = find("table tr").length
         equal(rows, 2, "the table had " + rows + " rows");
