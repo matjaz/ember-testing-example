@@ -4,5 +4,8 @@
     "karma-ember-preprocessor": "*",
     "karma-qunit": "*",
     "karma": "0.10"
+  },
+  "scripts": {
+    "postinstall": "bower install"
   }
 }

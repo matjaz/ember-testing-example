@@ -4,7 +4,6 @@ To run the javascript tests
 
     npm install
     export PATH="./node_modules/.bin:$PATH"
-    bower install
     karma start
 
 
@@ -12,7 +11,6 @@ To run the ember.js web app
 
     npm install
     export PATH="./node_modules/.bin:$PATH"
-    bower install
 
     ./bin/server
     http://localhost:3000
