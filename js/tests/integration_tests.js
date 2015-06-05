@@ -2,11 +2,11 @@ module('integration tests', {
     setup: function() {
         Ember.run(function() {
             App.reset();
-            App.Person.people = [];
+            App.Person.people.length = 0;
         });
     },
     teardown: function() {
-        $.mockjaxClear();
+        $.mockjax.clear();
     }
 });
 

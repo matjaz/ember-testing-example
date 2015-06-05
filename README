@@ -3,14 +3,11 @@ Ember-testing / QUnit / jquery-mockjax
 To run the javascript tests
 
     npm install
-    export PATH="./node_modules/.bin:$PATH"
-    karma start
+    ./node_modules/.bin/karma start
 
 
 To run the ember.js web app
 
     npm install
-    export PATH="./node_modules/.bin:$PATH"
-
     ./bin/server
-    http://localhost:3000
+    open http://localhost:3000

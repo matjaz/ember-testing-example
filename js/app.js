@@ -25,6 +25,8 @@ App.PeopleController = Ember.ArrayController.extend({
                 lastName: this.get('lastName')
             };
             App.Person.add(person);
+            this.set('firstName', '');
+            this.set('lastName', '');
         },
         deletePerson: function(person) {
             App.Person.remove(person);
